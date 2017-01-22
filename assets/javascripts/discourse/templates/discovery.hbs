@@ -8,6 +8,24 @@
   </div>
 </div>
 
+{{#if siteSettings.call_to_action_enable }}
+  {{#unless currentUser}}
+  <div id="full-page-signup-cta">
+    {{d-button action="showLogin" class="btn-primary btn-small login-button" label="log_in" }}
+    <img src="{{ siteSettings.call_to_action_image_url }}"/>
+    <h1 style="color:{{ siteSettings.call_to_action_big_text_color }}">
+      {{ siteSettings.call_to_action_big_text }}
+    </h1>
+    <h4>
+      <span style="color:{{ siteSettings.call_to_action_little_text_color }}">
+        {{ siteSettings.call_to_action_little_text }}
+      </span>
+    </h4>
+    {{d-button action="showCreateAccount" class="btn-primary btn-large sign-up-button" label="signup_cta.sign_up" }}
+  </div>
+  {{/unless}}
+{{/if}}
+
 
 <div class="container list-container  {{if siteSettings.sidebar_enable "has-sidebar"}}">
   <div class="row">
@@ -22,7 +40,7 @@
     <div class="full-width">
       <div id="list-area">
         {{plugin-outlet name="discovery-list-container-top"
-                        args=(hash category=category)}}
+        args=(hash category=category)}}
         {{outlet "list-container"}}
       </div>
     </div>
@@ -30,9 +48,9 @@
 </div>
 
 {{#if siteSettings.sidebar_enable}}
-  <div class="sidebar">
-    {{mount-widget widget="sidebar-items"}}
-  </div>
+<div class="sidebar">
+  {{mount-widget widget="sidebar-items"}}
+</div>
 {{/if}}
 
 {{plugin-outlet name="discovery-below"}}

@@ -5,3 +5,5 @@
 # url: https://github.com/pmusaraj/discourse-home-sidebar
 
 register_asset "stylesheets/sidebar.scss"
+register_asset "stylesheets/call_to_action.scss"
+register_asset "stylesheets/call_to_action_mobile.scss"
